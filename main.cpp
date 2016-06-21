@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <curl/curl.h>
 #include <cstring>
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/json_parser.hpp>
-#include <boost/filesystem/fstream.hpp>
+//#include <boost/property_tree/ptree.hpp>
+//#include <boost/property_tree/json_parser.hpp>
+//#include <boost/filesystem/fstream.hpp>
 
 
 using namespace std;
