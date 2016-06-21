@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.5)
+project(apicaller)
+link_libraries(-lcurl)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(SOURCE_FILES main.cpp request.cpp api.cpp)
+add_executable(apicaller ${SOURCE_FILES})
