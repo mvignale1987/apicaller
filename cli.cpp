@@ -17,12 +17,24 @@ void show_usage() {
     cout << "remove\t\t" << endl;
 }
 void create_wizard(){
-    Api * api = (Api*) malloc(sizeof(Api*));
+    Api * api = new Api();
     char* command = (char *) malloc(40 * sizeof(char*));
     cout << "insert an Id for this API :" << endl;
-    cin >> command;
-    api->setApi(command);
-    cout << api->getApi() <<endl ;
+    cin >> command; api->setId(command); command[0]= '\0';
+
+    cout << "insert an IP/host for this API :" << endl;
+    cin >> command; api->setHost(command); command[0]= '\0';
+
+    cout << "insert a port for this API :" << endl;
+    cin >> command; api->setPort(command); command[0]= '\0';
+
+    cout << "insert a base URL (the fixed part of the URL) for this API :" << endl;
+    cin >> command; api->setBaseUrl(command); command[0]= '\0';
+
+    api->setProtocol("http");
+
+    cout << api->str();
+    free(command);
 }
 
 int main(int argc, char *argv[]) {
