@@ -27,14 +27,14 @@ public:
         port = (char * )malloc(5 * sizeof(char*));
         baseUrl = (char * )malloc(20 * sizeof(char*));
     }
-    Api(ptree pt){
-        Api();
-        strcpy(id,pt.get("Api"));
-        strcpy(protocol,pt.get("Protocol"));
-        strcpy(host,pt.get("Host"));
-        strcpy(port,pt.get("Port"));
-        strcpy(baseUrl,pt.get("BaseUrl"));
-    }
+//    Api(ptree pt){
+//        Api();
+//        strcpy(id,pt.get("Api"));
+//        strcpy(protocol,pt.get("Protocol"));
+//        strcpy(host,pt.get("Host"));
+//        strcpy(port,pt.get("Port"));
+//        strcpy(baseUrl,pt.get("BaseUrl"));
+//    }
     char *getId() const {
         return id;
     }
@@ -98,5 +98,6 @@ public:
         pt.put("Port",port);
         pt.put("BaseUrl",baseUrl);
         write_json("test.json", pt);
+        return pt;
     }
 };
