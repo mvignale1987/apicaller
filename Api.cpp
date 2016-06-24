@@ -27,7 +27,14 @@ public:
         port = (char * )malloc(5 * sizeof(char*));
         baseUrl = (char * )malloc(20 * sizeof(char*));
     }
-
+    Api(ptree pt){
+        Api();
+        strcpy(id,pt.get("Api"));
+        strcpy(protocol,pt.get("Protocol"));
+        strcpy(host,pt.get("Host"));
+        strcpy(port,pt.get("Port"));
+        strcpy(baseUrl,pt.get("BaseUrl"));
+    }
     char *getId() const {
         return id;
     }
@@ -72,7 +79,9 @@ public:
     }
 
     char* getApiEndpoint() const {
-        return strcat(strcat(strcat(strcat(protocol,"://"),host),":"),port);
+        char* ret = (char*)malloc(40*sizeof(char*));
+        ret[0] = '\0';
+        return strcat(strcat(strcat(strcat(strcat(ret,protocol),"://"),host),":"),port);
     }
 
     std::string str(){
@@ -82,6 +91,12 @@ public:
     }
 
     ptree to_property_tree(){
-
+        ptree pt;
+        pt.put("Api",id);
+        pt.put("Protocol",protocol);
+        pt.put("Host",host);
+        pt.put("Port",port);
+        pt.put("BaseUrl",baseUrl);
+        write_json("test.json", pt);
     }
 };

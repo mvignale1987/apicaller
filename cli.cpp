@@ -34,6 +34,7 @@ void create_wizard(){
     api->setProtocol("http");
 
     cout << api->str();
+    api->to_property_tree();
     free(command);
 }
 
