@@ -6,7 +6,7 @@ set(SOURCE_FILES cli.cpp request.cpp Api.cpp Method.cpp)
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.60.0 COMPONENTS program_options REQUIRED)
+find_package(Boost 1.50.0 COMPONENTS program_options REQUIRED)
 
 if(Boost_FOUND)
     link_libraries(-lcurl -lboost_system)

@@ -36,6 +36,9 @@ void create_wizard(){
     cout << api->str();
     ptree pt = api->to_property_tree();
     write_json(std::cout,pt);
+    ptree otroTree;
+    read_json("test.json",otroTree);
+    Api* otraApi = new Api(otroTree);
     free(command);
 }
 

@@ -21,20 +21,24 @@ private:
 public:
 
     Api() {
-        id = (char * )malloc(20 * sizeof(char*));
-        protocol = (char * )malloc(20 * sizeof(char*));
-        host = (char * )malloc(20 * sizeof(char*));
-        port = (char * )malloc(5 * sizeof(char*));
-        baseUrl = (char * )malloc(20 * sizeof(char*));
+        id = (char * )malloc(20 * sizeof(char*)); id[0]= '\0';
+        protocol = (char * )malloc(20 * sizeof(char*)); protocol[0]= '\0';
+        host = (char * )malloc(20 * sizeof(char*)); host[0]= '\0';
+        port = (char * )malloc(5 * sizeof(char*)); port[0]= '\0';
+        baseUrl = (char * )malloc(20 * sizeof(char*)); baseUrl[0]= '\0';
     }
-//    Api(ptree pt){
-//        Api();
-//        strcpy(id,pt.get("Api"));
-//        strcpy(protocol,pt.get("Protocol"));
-//        strcpy(host,pt.get("Host"));
-//        strcpy(port,pt.get("Port"));
-//        strcpy(baseUrl,pt.get("BaseUrl"));
-//    }
+    Api(ptree pt){
+        id = (char * )malloc(20 * sizeof(char*)); id[0]= '\0';
+        protocol = (char * )malloc(20 * sizeof(char*)); protocol[0]= '\0';
+        host = (char * )malloc(20 * sizeof(char*)); host[0]= '\0';
+        port = (char * )malloc(5 * sizeof(char*)); port[0]= '\0';
+        baseUrl = (char * )malloc(20 * sizeof(char*)); baseUrl[0]= '\0';
+        strcpy(id,pt.get<std::string>("Api").c_str());
+        strcpy(protocol,pt.get<std::string>("Protocol").c_str());
+        strcpy(host,pt.get<std::string>("Host").c_str());
+        strcpy(port,pt.get<std::string>("Port").c_str());
+        strcpy(baseUrl,pt.get<std::string>("BaseUrl").c_str());
+    }
     char *getId() const {
         return id;
     }
@@ -97,7 +101,7 @@ public:
         pt.put("Host",host);
         pt.put("Port",port);
         pt.put("BaseUrl",baseUrl);
-        write_json("test.json", pt);
+        write_json("test.json",pt);
         return pt;
     }
 };
