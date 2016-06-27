@@ -1,55 +1,37 @@
 //
 // Created by mauriciovignale on 22/06/16.
 //
-#include "Api.cpp"
+#include "Method.h"
 
-class Method{
-private:
-    char*   id;
-    char*   access;
-    //map   headers;
-    //map   urlParams;
-    char*   httpMethod;
-    char*   formData;
-    Api*    api;
-public:
-    char *getId() const {
-        return id;
-    }
 
-    void setId(char *id) {
-        Method::id = id;
-    }
+char *Method::getId() const {
+    return id;
+}
 
-    char *getAccess() const {
-        return access;
-    }
+void Method::setId(char *id) {
+    Method::id = id;
+}
 
-    void setAccess(char *access) {
-        Method::access = access;
-    }
+char *Method::getAccess() const {
+    return access;
+}
 
-    char *getHttpMethod() const {
-        return httpMethod;
-    }
+void Method::setAccess(char *access) {
+    Method::access = access;
+}
 
-    void setHttpMethod(char *httpMethod) {
-        Method::httpMethod = httpMethod;
-    }
+char *Method::getHttpMethod() const {
+    return httpMethod;
+}
 
-    char *getFormData() const {
-        return formData;
-    }
+void Method::setHttpMethod(char *httpMethod) {
+    Method::httpMethod = httpMethod;
+}
 
-    void setFormData(char *formData) {
-        Method::formData = formData;
-    }
+char *Method::getFormData() const {
+    return formData;
+}
 
-    Api *getApi() const {
-        return api;
-    }
-
-    void setApi(Api *api) {
-        Method::api = api;
-    }
-};
+void Method::setFormData(char *formData) {
+    Method::formData = formData;
+}
